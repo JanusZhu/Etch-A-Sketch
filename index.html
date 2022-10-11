@@ -11,12 +11,17 @@
 
     <div class="content app-flex">
       <div class="btns">
-        <div class="btn btn-change">
-          <button onclick="changeGrid()">Change number of grids</button>
-        </div>
-        <div class="btn btn-reset">
-          <button onclick="resetGrid()">Reset</button>
-        </div>
+        <button class="btn btn-change" onclick="changeGrid()">
+          Change number of grids
+        </button>
+
+        <button class="btn btn-reset" onclick="resetGrid()">Reset</button>
+        <button class="btn btn-random" onclick="switchRandomColor()">
+          Random Color
+        </button>
+        <button class="btn btn-darken" onclick="switchDarkenColor()">
+          Incrementally Darken
+        </button>
       </div>
       <div class="container"></div>
     </div>

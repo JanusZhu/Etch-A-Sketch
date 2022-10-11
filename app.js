@@ -1,3 +1,4 @@
+//generate Grids
 function createGrids(n) {
   const grids = document.querySelectorAll(".grid");
 
@@ -16,9 +17,10 @@ function createGrids(n) {
   }
 }
 
+//Change number of Grids
 function changeGrid() {
   number = prompt("How many grids you want for each row? (1-64)");
-
+  //check if input is integer
   if (!Number.isInteger(Number(number))) {
     alert("Please choose a number.");
   } else if ((Number(number) > 64) | (Number(number) <= 0)) {
@@ -33,11 +35,53 @@ function resetGrid() {
 }
 
 function paintGrid(e) {
-  e.target.style.backgroundColor = "red";
+  if (randomColor) {
+    e.target.style.backgroundColor = generateRBG();
+  } else if (darkenColor) {
+    e.target.style.backgroundColor = `rgb(${currentColorRed}, ${currentColorGreen}, ${currentColorBlue})`;
+    if (currentColorRed > 0) {
+      currentColorRed -= incrementRed;
+      currentColorGreen -= incrementGreen;
+      currentColorBlue -= incrementBlue;
+    }
+  } else {
+    e.target.style.backgroundColor = "red";
+  }
 }
 
-let defaultNumber = 10;
-let number = 10;
+function generateRBG() {
+  return `rgb(${Math.round(Math.random() * 255)}, ${Math.round(
+    Math.random() * 255
+  )},${Math.round(Math.random() * 255)})`;
+}
+
+function switchRandomColor() {
+  randomColor = !randomColor;
+}
+
+function switchDarkenColor() {
+  darkenColor = !darkenColor;
+  if (darkenColor) {
+    currentColorRed = Math.round(Math.random() * 255);
+    currentColorGreen = Math.round(Math.random() * 255);
+    currentColorBlue = Math.round(Math.random() * 255);
+    incrementRed = currentColorRed / 10;
+    incrementGreen = currentColorGreen / 10;
+    incrementBlue = currentColorBlue / 10;
+  }
+}
+
+let darkenColor = false;
+let randomColor = false;
+let defaultNumber = 30;
+let currentColorBlue,
+  currentColorRed,
+  currentColorGreen,
+  incrementRed,
+  incrementGreen,
+  incrementBlue;
+
+let number = defaultNumber;
 const width = 500;
 const heigh = 500;
 createGrids(defaultNumber);

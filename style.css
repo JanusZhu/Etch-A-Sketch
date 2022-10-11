@@ -36,5 +36,8 @@ body {
 .btn {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin: 30px 100px;
+  padding: 10px 10px;
 }
