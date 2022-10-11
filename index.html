@@ -3,14 +3,24 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Etch-a-Sketch</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body class="app-flex">
-    <div class="btn">
-      <button onclick="changeGrid()">Change number of grids</button>
+  <body>
+    <div class="title">Etch-a-Sketch</div>
+
+    <div class="content app-flex">
+      <div class="btns">
+        <div class="btn btn-change">
+          <button onclick="changeGrid()">Change number of grids</button>
+        </div>
+        <div class="btn btn-reset">
+          <button onclick="resetGrid()">Reset</button>
+        </div>
+      </div>
+      <div class="container"></div>
     </div>
-    <div class="container"></div>
+
     <script src="app.js"></script>
   </body>
 </html>

@@ -17,7 +17,18 @@ function createGrids(n) {
 }
 
 function changeGrid() {
-  let number = prompt("How many grids you want for each row?");
+  number = prompt("How many grids you want for each row? (1-64)");
+
+  if (!Number.isInteger(Number(number))) {
+    alert("Please choose a number.");
+  } else if ((Number(number) > 64) | (Number(number) <= 0)) {
+    alert("Please choose a number in the right range (1-64).");
+  } else {
+    createGrids(Number(number));
+  }
+}
+
+function resetGrid() {
   createGrids(number);
 }
 
@@ -25,8 +36,10 @@ function paintGrid(e) {
   e.target.style.backgroundColor = "red";
 }
 
+let defaultNumber = 10;
+let number = 10;
 const width = 500;
 const heigh = 500;
-createGrids(10);
+createGrids(defaultNumber);
 
 console.log("Finished");

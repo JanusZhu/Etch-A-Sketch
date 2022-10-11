@@ -1,13 +1,14 @@
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: aquamarine;
-}
-app-flex {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+}
+
+.app-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .container {
   width: 500px;
@@ -18,4 +19,22 @@ app-flex {
 }
 .grid {
   background-color: aliceblue;
+}
+
+.title {
+  margin: 40px 0px;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: larger;
+  font-weight: 600;
+}
+
+.btns {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn {
+  display: flex;
+  flex-direction: column;
+  margin: 30px 100px;
 }
