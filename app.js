@@ -9,7 +9,9 @@ function createGrids(n) {
     grid.className = "grid";
     grid.setAttribute(
       "style",
-      `width: ${width / n - 2}px; height: ${heigh / n - 2}px; border: solid 1px`
+      `width: ${width / n - 2}px; height: ${
+        heigh / n - 2
+      }px; border: solid 1px #ccc`
     );
     grid.addEventListener("mouseover", paintGrid);
 
