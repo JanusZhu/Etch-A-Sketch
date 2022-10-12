@@ -1,7 +1,5 @@
 //generate Grids
 function createGrids(n) {
-  const grids = document.querySelectorAll(".grid");
-
   const container = document.querySelector(".container");
   container.innerHTML = "";
   for (let i = 0; i < n * n; i++) {
@@ -47,7 +45,7 @@ function paintGrid(e) {
       currentColorBlue -= incrementBlue;
     }
   } else {
-    e.target.style.backgroundColor = "red";
+    e.target.style.backgroundColor = defaultColor;
   }
 }
 
@@ -59,10 +57,16 @@ function generateRBG() {
 
 function switchRandomColor() {
   randomColor = !randomColor;
+  if (darkenColor & randomColor) {
+    darkenColor = !darkenColor;
+  }
 }
 
 function switchDarkenColor() {
   darkenColor = !darkenColor;
+  if (darkenColor & randomColor) {
+    randomColor = !randomColor;
+  }
   if (darkenColor) {
     currentColorRed = Math.round(Math.random() * 255);
     currentColorGreen = Math.round(Math.random() * 255);
@@ -72,10 +76,31 @@ function switchDarkenColor() {
     incrementBlue = currentColorBlue / 10;
   }
 }
+function updateColor(event) {
+  defaultColor = event.target.value;
+  if (randomColor) {
+    randomColor = false;
+  }
+  if (darkenColor) {
+    darkenColor = false;
+  }
+}
+
+function startup() {
+  colorWell = document.querySelector("#colorWell");
+  colorWell.value = defaultColor;
+  colorWell.addEventListener("input", updateColor, false);
+  colorWell.select();
+}
 
 let darkenColor = false;
 let randomColor = false;
 let defaultNumber = 30;
+let colorWell;
+let defaultColor = "#ff0000";
+
+window.addEventListener("load", startup, false);
+
 let currentColorBlue,
   currentColorRed,
   currentColorGreen,

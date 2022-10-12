@@ -41,3 +41,9 @@ body {
   margin: 30px 100px;
   padding: 10px 10px;
 }
+
+.btn-custom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
